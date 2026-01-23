@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Procedimientos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Buscador de Procedimientos</a>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h2>Buscar Procedimientos</h2>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input type="text" id="searchKeyword" class="form-control" placeholder="Buscar por etiqueta (nombre, descripción o instrumento)">
+            </div>
+            <div class="col-md-6">
+                <label>Acreditación:</label><br>
+                <input type="checkbox" id="anab" value="ANAB"> ANAB
+                <input type="checkbox" id="ema" value="EMA"> EMA
+                <input type="checkbox" id="trazable" value="TRAZABLE" checked> TRAZABLE
+            </div>
+        </div>
+        <button class="btn btn-primary mb-3" onclick="filterProcedures()">Buscar</button>
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Procedimiento</button>
+        <table class="table table-striped" id="proceduresTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Instrumento</th>
+                    <th>Acreditación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+    <!-- Modal para Agregar/Editar -->
+    <div class="modal fade" id="addModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Agregar Procedimiento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="procedureForm">
+                        <input type="hidden" id="editId">
+                        <div class="mb-3">
+                            <label>Nombre:</label>
+                            <input type="text" id="nombre" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Descripción:</label>
+                            <textarea id="descripcion" class="form-control" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label>Instrumento:</label>
+                            <input type="text" id="instrumento" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Acreditación:</label>
+                            <select id="acreditacion" class="form-control">
+                                <option value="ANAB">ANAB</option>
+                                <option value="EMA">EMA</option>
+                                <option value="TRAZABLE">TRAZABLE</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveProcedure()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

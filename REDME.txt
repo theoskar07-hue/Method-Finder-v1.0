@@ -1,0 +1,18 @@
+# Buscador de Procedimientos
+
+Una aplicación web simple para buscar y gestionar procedimientos de calibración basados en un listado Excel.
+
+## Características
+- Búsqueda por palabra clave en nombre, descripción o instrumento.
+- Filtro por tipo de acreditación (ANAB, EMA, TRAZABLE).
+- CRUD completo con persistencia local.
+- Diseño moderno con Bootstrap.
+
+## Uso
+1. Abre `index.html` en un navegador.
+2. Usa los campos de búsqueda y filtra.
+3. Agrega, edita o elimina procedimientos.
+
+## Archivos
+- `index.html`: Interfaz principal.
+- `app.js`: Lógica JavaScript.
