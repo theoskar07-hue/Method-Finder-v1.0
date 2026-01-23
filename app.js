@@ -59,7 +59,7 @@ function saveProcedure() {
     document.getElementById('procedureForm').reset();
     bootstrap.Modal.getInstance(document.getElementById('addModal')).hide();
     filterProcedures();
-    alert('Procedimiento guardado exitosamente.');
+    alert('Ya Quedo :).');
 }
 
 function editProcedure(id) {
@@ -69,16 +69,16 @@ function editProcedure(id) {
     document.getElementById('descripcion').value = p.descripcion;
     document.getElementById('instrumento').value = p.instrumento;
     document.getElementById('acreditacion').value = p.acreditacion;
-    document.getElementById('modalTitle').textContent = 'Editar Procedimiento';
+    document.getElementById('modalTitle').textContent = 'Editar Metodo';
     new bootstrap.Modal(document.getElementById('addModal')).show();
 }
 
 function deleteProcedure(id) {
-    if (confirm('¿Eliminar este procedimiento?')) {
+    if (confirm('¿Eliminar este Metodo?')) {
         procedures = procedures.filter(p => p.id != id);
         localStorage.setItem('procedures', JSON.stringify(procedures));
         filterProcedures();
-        alert('Procedimiento eliminado.');
+        alert('Metodo eliminado.');
     }
 }
 
